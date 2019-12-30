@@ -50,8 +50,11 @@ df_delta = pd.DataFrame(deltas, index=ratios, columns=pi_ps)
 df_gamma = pd.DataFrame(gammas, index=ratios, columns=pi_ps)
 
 print('deltas and gammas for new pi-ratios and pi(p) with p=0.6')
+
 print(df_delta)
 print(df_gamma)
+df_delta.to_csv('deltas.csv')
+df_gamma.to_csv('gammas.csv')
 
 old_ratios = np.linspace(0.1, 0.8, num=8)
 old_pi_ps = np.linspace(0.2, 0.8, num=11)
@@ -64,7 +67,8 @@ df_pi_ps = pd.DataFrame(required_pi_ps, index=old_ratios, columns=old_pi_ps)
 
 print('ratios and pi(p)s for p=0.6 required to obtain the same delta/gamma as old ratio pi(p) for p=0.75')
 
+df_ratios.to_csv('ratios_required.csv')
 print(df_ratios)
+df_pi_ps.to_csv('pi_ps_required.csv')
 print(df_pi_ps)
-
 

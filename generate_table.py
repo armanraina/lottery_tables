@@ -73,8 +73,9 @@ maxes = maxes + [rounddown(mins[-1], 5)]
 result_1 = [getroundedmidpoint(lo, hi) for lo, hi in zip(maxes, mins)]
 
 print('table 1')
-print(result_1)
-
+df_result_1 = pd.DataFrame(reversed(result_1))
+df_result_1.to_csv(r'table_1.csv')
+print(df_result_1)
 ####
 
 table_2 = generate_table_series_2(Z_1, sigmas, ratios)
@@ -90,7 +91,7 @@ for i in range(1, len(table_2)):
 result_2[0] = np.array([roundup(x, 100) for x in list(table_2[0])])
 
 df_result_2 = pd.DataFrame(result_2, columns=ratios, index=sigmas)
-print('table 2')
+df_result_2.to_csv(r'table_2.csv')
 print(df_result_2)
 ####
 
@@ -109,7 +110,7 @@ result_3[0] = np.array([roundup(x, 100) for x in list(table_3[0])])
 df_result_3 = pd.DataFrame(result_3, columns=sigmas, index=pi_ps)
 
 print('table 3')
-
+df_result_3.to_csv(r'table_3.csv')
 print(df_result_3)
 
 #### 
@@ -132,6 +133,7 @@ for k in range(len(ratios)):
 for k in range(len(ratios)):
     df_result_4 = pd.DataFrame(result_4[:, :, k], columns=sigmas, index=ls)
     print(f'table 4 with ratio = {ratios[k]:.2f}')
+    df_result_4.to_csv(f'table_4_{ratios[k]*100:.0f}.csv')
     print(df_result_4)
 
 
