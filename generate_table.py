@@ -73,7 +73,7 @@ maxes = maxes + [rounddown(mins[-1], 5)]
 result_1 = [getroundedmidpoint(lo, hi) for lo, hi in zip(maxes, mins)]
 
 print('table 1')
-df_result_1 = pd.DataFrame(reversed(result_1))
+df_result_1 = pd.DataFrame(reversed(result_1[:-1]), index = reversed(ratios))
 df_result_1.to_csv(r'table_1.csv')
 print(df_result_1)
 ####
